@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Converter Tool</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PDF Converter Tool</h1>
+            <p>Convert your PDF files to Word and other formats</p>
+        </header>
+
+        <main>
+            <div class="converter-container">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <i class="fas fa-file-upload"></i>
+                    </div>
+                    <p>Drag & drop your PDF file here</p>
+                    <p>or</p>
+                    <label for="fileInput" class="upload-btn">Browse Files</label>
+                    <input type="file" id="fileInput" accept=".pdf" hidden>
+                </div>
+
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <div class="file-details">
+                        <div class="file-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="file-name-size">
+                            <p id="fileName">filename.pdf</p>
+                            <p id="fileSize">0 KB</p>
+                        </div>
+                        <button id="removeFile" class="remove-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="conversion-options">
+                    <h3>Convert to:</h3>
+                    <div class="format-options">
+                        <button class="format-btn active" data-format="docx">
+                            <i class="fas fa-file-word"></i>
+                            <span>Word (DOCX)</span>
+                        </button>
+                        <button class="format-btn" data-format="txt">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Text (TXT)</span>
+                        </button>
+                        <button class="format-btn" data-format="html">
+                            <i class="fas fa-file-code"></i>
+                            <span>HTML</span>
+                        </button>
+                    </div>
+                </div>
+
+                <button id="convertBtn" class="convert-btn" disabled>
+                    <i class="fas fa-cog"></i>
+                    <span>Convert PDF</span>
+                </button>
+
+                <div class="progress-container" id="progressContainer" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress" id="progressBar"></div>
+                    </div>
+                    <p id="progressStatus">Converting... 0%</p>
+                </div>
+
+                <div class="result-container" id="resultContainer" style="display: none;">
+                    <div class="result-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <p>Conversion completed successfully!</p>
+                    <a id="downloadLink" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        <span>Download File</span>
+                    </a>
+                    <button id="convertAnother" class="convert-another-btn">
+                        <i class="fas fa-redo"></i>
+                        <span>Convert Another File</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 PDF Converter Tool. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Load libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="https://unpkg.com/docx@8.0.0/build/index.js"></script>
+    
+    <!-- Load our scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>
